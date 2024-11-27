@@ -7,3 +7,9 @@ A `PostgreSQL` plugin for `bedtools`, implemented in `Rust`.
 ## Libraries Used
 
 * [bedrs](https://github.com/noamteyssier/bedrs)
+
+## License
+
+A short snippet describing the license (MIT)
+
+MIT © Cangsheng Shen
