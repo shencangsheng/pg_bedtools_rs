@@ -1,0 +1,28 @@
+[package]
+name = "pg_bedtools_rs"
+version = "0.0.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[features]
+default = ["pg13"]
+pg13 = ["pgrx/pg13", "pgrx-tests/pg13" ]
+pg_test = []
+
+[dependencies]
+pgrx = "0.11.4"
+bedrs = "0.2.25"
+
+[dev-dependencies]
+pgrx-tests = "0.11.4"
+
+[profile.dev]
+panic = "unwind"
+
+[profile.release]
+panic = "unwind"
+opt-level = 3
+lto = "fat"
+codegen-units = 1
