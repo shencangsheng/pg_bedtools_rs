@@ -7,11 +7,9 @@ use pgrx::iter::TableIterator;
 #[pg_extern]
 fn bed_overlap(table_name: &str, padding: default!(i32, 0), conditions: default!(String, "1 = 1")) -> TableIterator<'static, (name!(chromosome, String), name!(pos_start, i32), name!(pos_end, i32))> {
     let sql = format!("SELECT chromosome, pos_start, pos_end FROM {} where {} order by chromosome, pos_start asc", table_name, conditions);
-    println!("{}", sql);
 
     Spi::connect(|client| -> Result<TableIterator<'static, (name!(chromosome, String), name!(pos_start, i32), name!(pos_end, i32))>, Box<dyn std::error::Error>> {
         let mut intervals = vec![];
-
         let mut result = client.select(&sql, None, None)?;
         while let Some(row) = result.next() {
             let chromosome = row.get::<String>(1).unwrap().unwrap();
