@@ -4,11 +4,36 @@
 
 A `PostgreSQL` plugin for `bedtools`, implemented in `Rust`.
 
-## Libraries Used
+## 🌟 Features
+
+- [x] `bed_overlap`
+
+## 🛠️ Installer
+
+```bash
+cargo install cargo-pgrx --version 0.11.4 --locked
+cargo pgrx install --pg-config [PATH]
+```
+
+```sql
+CREATE EXTENSION pg_bedtools_rs
+```
+
+## 📦 Supports
+
+- PostgreSQL 13
+
+## 💡 Trying
+
+```sql
+select * from bed_overlap('tube_probe_bed', 20)
+```
+
+## 👍 Libraries Used
 
 * [bedrs](https://github.com/noamteyssier/bedrs)
 
-## License
+## 📝 License
 
 A short snippet describing the license (MIT)
 

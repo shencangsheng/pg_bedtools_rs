@@ -1,7 +1,7 @@
 // 定义扩展模块
 
 use bedrs::{Bed3, Coordinates, MergeIter};
-use pgrx::{default, name, pg_extern, Spi, VariadicArray};
+use pgrx::{default, name, pg_extern, Spi};
 use pgrx::iter::TableIterator;
 
 #[pg_extern]
