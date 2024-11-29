@@ -27,7 +27,7 @@ mod tests {
         Spi::run("INSERT INTO tube_probe_bed (chromosome, pos_start, pos_end) VALUES ('chr1', 5, 10), ('chr1', 10, 14), ('chr1', 10, 14), ('chr1', 7, 15), ('chr1', 22, 30), ('chr1', 25, 35), ('chr2', 5, 10), ('chr2', 7, 15);").unwrap();
 
         // 调用扩展函数
-        let result = Spi::get_one::<i64>("SELECT count(*) FROM bed_overlap('tube_probe_bed', 0);").unwrap();
+        let result = Spi::get_one::<i64>("SELECT count(*) FROM bed_overlap('tube_probe_bed');").unwrap();
         assert_eq!(result.unwrap(), 3);
     }
 }

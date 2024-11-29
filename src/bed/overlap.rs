@@ -1,17 +1,18 @@
 // 定义扩展模块
 
 use bedrs::{Bed3, Coordinates, MergeIter};
-use pgrx::{default, name, pg_extern, Spi};
+use pgrx::{default, name, pg_extern, Spi, VariadicArray};
 use pgrx::iter::TableIterator;
 
 #[pg_extern]
-fn bed_overlap(table_name: &str, padding: default!(i32, 0)) -> TableIterator<'static, (name!(chromosome, String), name!(pos_start, i32), name!(pos_end, i32))> {
-    let query = format!("SELECT chromosome, pos_start, pos_end FROM {} order by chromosome, pos_start asc", table_name);
+fn bed_overlap(table_name: &str, padding: default!(i32, 0), conditions: default!(String, "1 = 1")) -> TableIterator<'static, (name!(chromosome, String), name!(pos_start, i32), name!(pos_end, i32))> {
+    let sql = format!("SELECT chromosome, pos_start, pos_end FROM {} where {} order by chromosome, pos_start asc", table_name, conditions);
+    println!("{}", sql);
 
     Spi::connect(|client| -> Result<TableIterator<'static, (name!(chromosome, String), name!(pos_start, i32), name!(pos_end, i32))>, Box<dyn std::error::Error>> {
         let mut intervals = vec![];
 
-        let mut result = client.select(&query, None, None)?;
+        let mut result = client.select(&sql, None, None)?;
         while let Some(row) = result.next() {
             let chromosome = row.get::<String>(1).unwrap().unwrap();
             let pos_start = row.get::<i32>(2).unwrap().unwrap() - padding;
