@@ -1,7 +1,13 @@
 [package]
 name = "pg_bedtools_rs"
-version = "0.0.0"
+version = "0.0.1"
 edition = "2021"
+authors = ["Liu Shiyu <shencangsheng@126.com>"]
+homepage = "https://github.com/shencangsheng/pg_bedtools_rs"
+license = "MIT"
+repository = "https://github.com/shencangsheng/pg_bedtools_rs"
+description = "A PostgreSQL plugin for bedtools, implemented in Rust."
+
 
 [lib]
 crate-type = ["cdylib"]
