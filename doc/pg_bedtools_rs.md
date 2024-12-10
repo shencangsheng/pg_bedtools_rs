@@ -1,29 +1,14 @@
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
-
 # pg_bedtools_rs
 
 A `PostgreSQL` plugin for `bedtools`, implemented in `Rust`.
 
-## 🌟 Features
+Please note that this version of pg_bedtools_rs only works with PostgreSQL Version 13.
 
-- [x] `bed_overlap`
+## API
 
-## 🛠️ Installer
+bed_overlap(table_name: string, padding: int, conditions: string) RETURNS chromosome, pos_start, pos_end
 
-```bash
-cargo install cargo-pgrx --version 0.11.4 --locked
-cargo pgrx install --pg-config [PATH]
-```
-
-```sql
-CREATE EXTENSION pg_bedtools_rs
-```
-
-## 📦 Supports
-
-- PostgreSQL 13
-
-## 💡 Trying
+## Example
 
 Basic example:
 
@@ -57,13 +42,3 @@ Returns:
 | chr1       | 5         | 15      |
 | chr1       | 22        | 35      |
 | chr2       | 5         | 15      |
-
-## 👍 Libraries Used
-
-* [bedrs](https://github.com/noamteyssier/bedrs)
-
-## 📝 License
-
-A short snippet describing the license (MIT)
-
-MIT © Cangsheng Shen
