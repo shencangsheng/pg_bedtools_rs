@@ -10,9 +10,20 @@ A `PostgreSQL` plugin for `bedtools`, implemented in `Rust`.
 
 ## 🛠️ Installer
 
+![Local Machine](https://img.shields.io/badge/local%20machine-blue?logo=computer&logoColor=white)
+
 ```bash
 cargo install cargo-pgrx --version 0.11.4 --locked
 cargo pgrx install --pg-config [PATH]
+```
+
+### ![Docker](https://img.shields.io/badge/docker-blue?logo=docker&logoColor=white)
+
+```bash
+docker run --rm -v $(pwd):/usr/src/app shencangsheng/pgrx:13
+cp target/release/pg_bedtools_rs-pg13/root/.pgrx/13.18/pgrx-install/lib/postgresql/pg_bedtools_rs.so ${POSTGRESQL_PATH}/lib/
+cp target/release/pg_bedtools_rs-pg13/root/.pgrx/13.18/pgrx-install/share/postgresql/extension/pg_bedtools_rs.control ${POSTGRESQL_PATH}/extension/
+cp target/release/pg_bedtools_rs-pg13/root/.pgrx/13.18/pgrx-install/share/postgresql/extension/pg_bedtools_rs.control ${POSTGRESQL_PATH}/extension/
 ```
 
 ```sql
@@ -59,7 +70,8 @@ Returns:
 
 ## 👍 Libraries Used
 
-* [bedrs](https://github.com/noamteyssier/bedrs)
+* [noamteyssier/bedrs](https://github.com/noamteyssier/bedrs)
+* [shencangsheng/pgrx-docker](https://github.com/shencangsheng/pgrx-docker)
 
 ## 📝 License
 
