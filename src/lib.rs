@@ -21,13 +21,13 @@ mod tests {
 
     // 初始化测试环境
     #[pg_test]
-    fn test_bed_overlap() {
+    fn test_bed_merge() {
         // 创建测试表并插入数据
         Spi::run("CREATE TABLE tube_probe_bed (chromosome varchar, pos_start integer, pos_end integer);").unwrap();
         Spi::run("INSERT INTO tube_probe_bed (chromosome, pos_start, pos_end) VALUES ('chr1', 5, 10), ('chr1', 10, 14), ('chr1', 10, 14), ('chr1', 7, 15), ('chr1', 22, 30), ('chr1', 25, 35), ('chr2', 5, 10), ('chr2', 7, 15);").unwrap();
 
         // 调用扩展函数
-        let result = Spi::get_one::<i64>("SELECT count(*) FROM bed_overlap('tube_probe_bed');").unwrap();
+        let result = Spi::get_one::<i64>("SELECT count(*) FROM bed_merge('tube_probe_bed');").unwrap();
         assert_eq!(result.unwrap(), 3);
     }
 }

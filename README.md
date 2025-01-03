@@ -6,7 +6,7 @@ A `PostgreSQL` plugin for `bedtools`, implemented in `Rust`.
 
 ## 🌟 Features
 
-- [x] `bed_overlap`
+- [x] `bed_merge`
 
 ## 🛠️ Installer
 
@@ -40,14 +40,13 @@ INSERT INTO
 VALUES
 	('chr1', 5, 10),
 	('chr1', 10, 14),
-	('chr1', 10, 14),
 	('chr1', 7, 15),
 	('chr1', 22, 30),
 	('chr1', 25, 35),
 	('chr2', 5, 10),
 	('chr2', 7, 15);
 	
-select * from bed_overlap('tube_probe_bed');
+select * from bed_merge('tube_probe_bed');
 ```
 
 Returns:
