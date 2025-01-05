@@ -1,6 +1,5 @@
 use pgrx::prelude::*;
 use pgrx::spi::{Spi};
-use bedrs::{Bed3, Coordinates, MergeIter};
 
 pub mod bed;
 

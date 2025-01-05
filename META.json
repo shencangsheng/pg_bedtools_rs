@@ -24,5 +24,9 @@
   },
   "tags": [
     "bed_tools"
-  ]
+  ],
+  "requires": {
+    "postgresql": ">=13.0",
+    "pgrx": ">=0.11.4"
+  }
 }
