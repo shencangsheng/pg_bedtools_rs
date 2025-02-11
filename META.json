@@ -3,11 +3,11 @@
   "abstract": "A PostgreSQL plugin for bedtools, implemented in Rust.",
   "version": "0.1.0",
   "maintainer": "Liu Shiyu <shencangsheng@126.com>",
-  "license": "postgresql",
+  "license": "MIT",
   "provides": {
     "pg_bedtools_rs": {
       "abstract": "A PostgreSQL plugin for bedtools, implemented in Rust.",
-      "file": "sql/pg_bedutils_rs--0.1.0.sql",
+      "file": "sql/pg_bedtools_rs--0.1.0.sql",
       "docfile": "doc/pg_bedtools_rs.md",
       "version": "0.1.0"
     }
@@ -17,16 +17,19 @@
       "web": "https://github.com/shencangsheng/pg_bedtools_rs/issues"
     },
     "repository": {
-      "url": "git@github.com:shencangsheng/pg_bedtools_rs.git",
+      "url": "https://github.com:shencangsheng/pg_bedtools_rs.git",
       "web": "https://github.com/shencangsheng/pg_bedtools_rs",
       "type": "git"
     }
   },
   "tags": [
-    "bed_tools"
+    "bedtools"
   ],
-  "requires": {
-    "postgresql": ">=13.0",
-    "pgrx": ">=0.11.4"
+  "prereqs": {
+    "runtime": {
+      "requires": {
+        "PostgreSQL": ">=13.0"
+      }
+    }
   }
 }
