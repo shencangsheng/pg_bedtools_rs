@@ -22,7 +22,7 @@ cargo pgrx install --pg-config [PATH]
 ```bash
 docker run --rm -v $(pwd):/usr/src/app shencangsheng/pgrx:13
 cp target/release/pg_bedtools_rs-pg13/root/.pgrx/13.18/pgrx-install/lib/postgresql/pg_bedtools_rs.so ${POSTGRESQL_PATH}/lib/
-cp target/release/pg_bedtools_rs-pg13/root/.pgrx/13.18/pgrx-install/share/postgresql/extension/pg_bedtools_rs.control ${POSTGRESQL_PATH}/extension/
+cp target/release/pg_bedtools_rs-pg13/root/.pgrx/13.18/pgrx-install/share/postgresql/extension/pg_bedtools_rs--0.1.0.sql ${POSTGRESQL_PATH}/extension/
 cp target/release/pg_bedtools_rs-pg13/root/.pgrx/13.18/pgrx-install/share/postgresql/extension/pg_bedtools_rs.control ${POSTGRESQL_PATH}/extension/
 ```
 
